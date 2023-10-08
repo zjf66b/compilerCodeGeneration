@@ -1,0 +1,132 @@
+#keyboard works as well, just run, enter code, hit Ctl-d when finished. #
+# p4g1, simplest program possible that does basically anything #
+#
+whole x := 0 ;
+program
+begin
+input x ;
+end
+#
+
+#
+PUSH
+READ V0
+LOAD V0
+STACKW 0
+POP
+STOP
+V0 0
+#
+
+# p4g2, take in a number and output it, will have to implement part of expression for this #
+#
+whole xz := 10 ;
+program
+begin
+output xz ;
+end
+#
+
+
+#
+PUSH
+STACKR 0
+STORE V0
+WRITE V0
+POP
+V0 0
+#
+#p4g3, test mathematical operations #
+
+whole yx := 3 ;
+program 
+begin
+  assign yx = 5 * 7 - 11 + 13 / : 15 ;
+  output yx ;
+end
+
+#
+PUSH
+LOAD 15
+MULT -1
+STORE V0
+LOAD 13
+DIV V0
+STORE V1 
+LOAD 11
+STORE V2
+LOAD 7 
+STORE V3
+LOAD 5
+SUB V2
+STACKW -1
+STACKR 0
+STORE V4
+WRITE V4
+POP
+STOP
+V0 0
+V1 0
+V2 0
+V3 0
+V4 0
+#
+
+
+# p4g4 , testing relational operators, will need seperate one #
+#
+program
+begin
+  whole ab :=5 ;
+  whole cd :=7 ;
+  if [ ab == cd ] then
+  begin
+      output 1 ;
+  end ;
+end
+#
+
+#p5g5, testing relational operators and pick #
+#
+program 
+begin
+  whole ab := 5 ;
+  whole cd := 7 ;
+  if [ ab [ = ] cd ] then
+  begin
+      output 1 ;
+  end
+  pick
+  begin
+      output 0 ;
+  end ;
+end
+#
+
+# p4g6 , testing while loop #
+#
+program
+begin
+    whole ab := 3 ;
+    whole cd : 7 ;
+    while [ ab < cd ]
+    begin
+        output ab ;
+        assign ab = ab + 1 ;
+    end ;
+end
+#
+
+# p4g7 , infinite increment loop test with warp / label #
+#
+program
+begin
+    whole thislab := 3 ;
+    label thislab ;
+        assign thislab = thislab + 1 ;
+        output thislab ;
+    warp thislab ;
+end
+#
+
+
