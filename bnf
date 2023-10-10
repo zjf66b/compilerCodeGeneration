@@ -1,0 +1,20 @@
+BNF Grammar of fictional programming language
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<block>         ->      begin <vars> <stats> end
+<vars>          ->      empty | whole Identifier :=  Integer  ;  <vars> 
+<expr>          ->      <N> - <expr>  | <N>
+<N>             ->      <A> + <N> | <A> * <N> | <A>
+<A>             ->      <A> / <M> | <M>
+<M>             ->      : <M> | <R>
+<R>             ->      ( <expr> ) | Identifier | Integer
+<stats>         ->      <stat>  <mStat>
+<mStat>         ->      empty |  <stat>  <mStat>
+<stat>          ->      <in> ;  | <out> ;  | <block> | <if> ;  | <loop> ;  | <assign> ; | <goto> ; | <label> ;
+<in>            ->      input  Identifier  
+<out>           ->      output <expr>
+<if>            ->      if [ <expr> <RO> <expr> ] then <stat> | if [ <expr> <RO> <expr> ] then <stat> pick <stat>
+<loop>          ->      while  [ <expr> <RO> <expr> ]  <stat>
+<assign>        ->      assign Identifier  = <expr>  
+<RO>            ->       >  | < |  ==  |   [ = ]  (three tokens)  | !=
+<label>         ->      label Identifier
+<goto>          ->      warp Identifier```
